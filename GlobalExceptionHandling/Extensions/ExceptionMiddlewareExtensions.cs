@@ -1,4 +1,5 @@
-﻿using GlobalExceptionHandling.Models;
+﻿using GlobalExceptionHandling.CustomExceptionMiddleware;
+using GlobalExceptionHandling.Models;
 using LoggerService;
 using Microsoft.AspNetCore.Diagnostics;
 using System.Net;
@@ -31,6 +32,11 @@ namespace GlobalExceptionHandling.Extensions
                     }
                 });
             });
+        }
+
+        public static void ConfigureCustomExceptionMiddleware(this WebApplication app)
+        {
+            app.UseMiddleware<ExceptionMiddleware>();
         }
 
     }

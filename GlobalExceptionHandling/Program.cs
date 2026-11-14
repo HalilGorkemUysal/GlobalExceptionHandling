@@ -18,8 +18,10 @@ if (app.Environment.IsDevelopment())
     app.MapOpenApi();
 }
 
-var logger = app.Services.GetRequiredService<ILoggerManager>();
-app.ConfigureExceptionHandler(logger);
+//var logger = app.Services.GetRequiredService<ILoggerManager>();
+//app.ConfigureExceptionHandler(logger);
+
+app.ConfigureCustomExceptionMiddleware();
 
 app.UseHttpsRedirection();
 
