@@ -1,4 +1,4 @@
-﻿using Microsoft.Extensions.Logging;
+﻿using NLog;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,16 +9,31 @@ namespace LoggerService
 {
     public class LoggerManager : ILoggerManager
     {
-        private readonly ILogger<LoggerManager> _logger;
+        private readonly ILogger _logger;
 
-        public LoggerManager(ILogger<LoggerManager> logger)
+        public LoggerManager()
         {
-            _logger = logger;
+            _logger = LogManager.GetCurrentClassLogger();
         }
 
-        public void LogDebug(string message) => _logger.LogDebug(message);
-        public void LogError(string message) => _logger.LogError(message);
-        public void LogInfo(string message) => _logger.LogInformation(message);
-        public void LogWarn(string message) => _logger.LogWarning(message);
+        public void LogInfo(string message)
+        {
+            _logger.Info(message);
+        }
+
+        public void LogWarn(string message)
+        {
+            _logger.Warn(message);
+        }
+
+        public void LogDebug(string message)
+        {
+            _logger.Debug(message);
+        }
+
+        public void LogError(string message)
+        {
+            _logger.Error(message);
+        }
     }
 }

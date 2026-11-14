@@ -1,14 +1,15 @@
 ﻿using GlobalExceptionHandling.Models;
+using LoggerService;
 using System.Net;
 
-namespace GlobalExceptionHandling.CustomExceptionMiddleware
+namespace GlobalExceptionHandling.GlobalExceptionHandling.CustomExceptionMiddleware
 {
     public class ExceptionMiddleware
     {
         private readonly RequestDelegate _next;
-        private readonly ILogger<ExceptionMiddleware> _logger;
+        private readonly ILoggerManager _logger;
 
-        public ExceptionMiddleware(RequestDelegate next, ILogger<ExceptionMiddleware> logger)
+        public ExceptionMiddleware(RequestDelegate next, ILoggerManager logger)
         {
             _next = next;
             _logger = logger;
@@ -18,7 +19,7 @@ namespace GlobalExceptionHandling.CustomExceptionMiddleware
         {
             try
             {
-                await _next(httpContext);
+                await _next(httpContext);//HTTP isteğini pipeline'daki bir sonraki middleware'e iletir.
             }
             catch (Exception ex)
             {

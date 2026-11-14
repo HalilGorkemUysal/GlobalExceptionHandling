@@ -1,17 +1,16 @@
-﻿using GlobalExceptionHandling.CustomExceptionMiddleware;
+﻿using GlobalExceptionHandling.GlobalExceptionHandling.CustomExceptionMiddleware;
 using GlobalExceptionHandling.Models;
 using LoggerService;
 using Microsoft.AspNetCore.Diagnostics;
 using System.Net;
 
-namespace GlobalExceptionHandling.Extensions
+namespace GlobalExceptionHandling.GlobalExceptionHandling.Extensions
 {
     public static class ExceptionMiddlewareExtensions
     {//C# programlama dilinde static class (statik sınıf), kendisinden new anahtar kelimesi ile nesne üretilemeyen (örneklenemeyen) ve yalnızca static üyeler barındırabilen özel bir sınıf türüdür
 
         public static void ConfigureExceptionHandler(this WebApplication app, ILoggerManager logger)
         {
-
             app.UseExceptionHandler(appError =>
             {
                 appError.Run(async context =>
