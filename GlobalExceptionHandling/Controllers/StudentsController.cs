@@ -22,7 +22,7 @@ namespace GlobalExceptionHandling.Controllers
 
             var students = DataManager.GetAllStudents();
 
-            throw new Exception("Exception while fetching all the students from the database");
+            throw new UnauthorizedAccessException();
         }
     }
 }
