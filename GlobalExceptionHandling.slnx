@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="GlobalExceptionHandling/GlobalExceptionHandling.csproj" />
+  <Project Path="LoggerService/LoggerService.csproj" />
+</Solution>
