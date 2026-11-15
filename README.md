@@ -13,8 +13,6 @@
 
 </div>
 
-> **Kapsam:** Repository'nin `master` dalı, `4a086749` commit'i esas alınmıştır (14 Kasım 2026). Bu README, depoda **gerçekten bulunan üç yaklaşımı** açıklamaktadır. Bazı kod parçaları, kurulum ve deneme kolaylığı için açıkça **önerilen düzenleme** olarak işaretlenmiştir; bunların tümü repoda birebir aynı biçimde bulunmayabilir.
-
 ## 🎯 Amaç
 
 Controller/Service katmanlarında yakalanmadan yükselen exception'ları tek noktadan ele almak, uygun HTTP durum kodları üretmek, hassas hata detaylarını istemciden gizlemek ve NLog aracılığıyla kayıt altına almak. Üç teknik **alternatif yaklaşımlardır**: Öğrenmek için hepsi kaynak kodda tutulabilir, fakat normal kullanımda `Program.cs` içinde **yalnızca bir yaklaşımı etkinleştirin**.
